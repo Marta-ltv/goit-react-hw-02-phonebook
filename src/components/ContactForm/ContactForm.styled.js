@@ -1,6 +1,11 @@
 // import styled from 'styled-components';
+// import { Field } from './ContactForm';
 
-// export const ButtonContainer = styled.div`
-// padding: 20px;
-// `
+// export const Input = styled(Field)`
+// padding: 10px;
+// display: flex;
+// gap: 10px;
+// `;
+
+
 
