@@ -1,6 +1,6 @@
 // import styled from 'styled-components';
 
-// export const MessageInfo = styled.h2`
+// export const ButtonContainer = styled.div`
 // padding: 20px;
-// color: blue;
 // `
+
