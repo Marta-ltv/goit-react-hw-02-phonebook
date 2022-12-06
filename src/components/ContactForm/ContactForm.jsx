@@ -3,21 +3,28 @@ import React from 'react';
 // import { nanoid } from 'nanoid';
 // import { Input } from './ContactForm.styled';
 import styled from 'styled-components';
+import { Label, Button } from './ContactForm.styled';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 
 const Input = styled(Field)`
-padding: 7px;
 display: flex;
-gap: 10px;
+padding: 10px;
 align-items: center;
-width: 200px;
-margin: 3px 10px;
+margin-left: 10px;
+border-radius: 8px;
 `;
 
-const FormContainer = styled(Formik)`
-margin-left: 10px;
+const FormContainer = styled(Form)`
+margin:7px;
+border: 1px solid black;
+border-radius: 8px;
+width:500px;
+background-color: #f1ecea;
+
 `;
+
+
 
 const schema = yup.object().shape({
   name: yup.string().required(),
@@ -34,9 +41,9 @@ export const ContactForm = () => {
     resetForm();
   };
   return (
-    <FormContainer initialValues={initialValue} validationSchema={schema} onSubmit={handleSubmit}>
-      <Form autoComplete="off">
-        <label>
+    <Formik initialValues={initialValue} validationSchema={schema} onSubmit={handleSubmit}>
+      <FormContainer autoComplete="off">
+        <Label>
           Name
           <Input
             type="text"
@@ -46,9 +53,9 @@ export const ContactForm = () => {
             required
           />
           <ErrorMessage component="div" name="name" />
-        </label>
+        </Label>
 
-        <label>
+        <Label>
           Number
           <Input
             type="text"
@@ -58,10 +65,10 @@ export const ContactForm = () => {
             required
           />
           <ErrorMessage component="div" name="number" />
-        </label>
-        <button>Add contact</button>
-      </Form>
-    </FormContainer>
+        </Label>
+        <Button>Add contact</Button>
+      </FormContainer>
+    </Formik>
   );
 };
 

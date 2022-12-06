@@ -1,11 +1,21 @@
-// import styled from 'styled-components';
-// import { Field } from './ContactForm';
+import styled from 'styled-components';
 
-// export const Input = styled(Field)`
-// padding: 10px;
-// display: flex;
-// gap: 10px;
-// `;
+
+export const Label = styled.label`
+margin-left: 10px;
+font-size: 20px;
+font-weight: 600;
+`;
+
+export const Button = styled.button`
+margin:10px;
+padding:5px;
+border-radius: 10px;
+background-color: lightblue;
+color: blue;
+`;
+
+
 
 
 
