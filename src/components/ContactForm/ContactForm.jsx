@@ -1,7 +1,6 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 // import { nanoid } from 'nanoid';
-// import { Input } from './ContactForm.styled';
 import styled from 'styled-components';
 import { Label, Button } from './ContactForm.styled';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
@@ -21,10 +20,7 @@ border: 1px solid black;
 border-radius: 8px;
 width:500px;
 background-color: #f1ecea;
-
 `;
-
-
 
 const schema = yup.object().shape({
   name: yup.string().required(),
@@ -35,6 +31,10 @@ const initialValue = {
   name: '',
   number: '',
 };
+
+// NameInputId = nanoid();
+// NumberInputId = nanoid();
+
 export const ContactForm = () => {
   const handleSubmit = (values, { resetForm }) => {
     console.log(values);
@@ -43,11 +43,12 @@ export const ContactForm = () => {
   return (
     <Formik initialValues={initialValue} validationSchema={schema} onSubmit={handleSubmit}>
       <FormContainer autoComplete="off">
-        <Label>
+        <Label >
           Name
           <Input
             type="text"
             name="name"
+            // id={this.NameInputId}
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
@@ -58,8 +59,9 @@ export const ContactForm = () => {
         <Label>
           Number
           <Input
-            type="text"
+            type="tel"
             name="number"
+            // id={this.NumberInputId}
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
@@ -72,7 +74,9 @@ export const ContactForm = () => {
   );
 };
 
-// FeedbackOptions.propTypes = {
-//     options: PropTypes.number.isRequired,
-//     onLeaveFeedback: PropTypes.number.isRequired,
+// ContactForm.propTypes = {
+//   name: PropTypes.string,
+//   value: PropTypes.string,
+//   handleSubmit: PropTypes.func,
+  
 // };
