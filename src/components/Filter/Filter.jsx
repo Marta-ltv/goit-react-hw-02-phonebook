@@ -1,12 +1,23 @@
 import React from "react";
 import propTypes from 'prop-types';
-import { ErrorMessage } from "./Filter.styled";
+import { FilterLabel, FilterInput } from "./Filter.styled";
 
 
-export const Filter = ({ message }) =>
-    <ErrorMessage>{message}</ErrorMessage>;
+export const Filter = ({ value, onChange }) => (
+    <FilterLabel>
+    Find contacts by Name
+    <FilterInput
+      type="text"
+      name="filter"
+      placeholder="Search contact"
+      value={value}
+      onChange={onChange}
+    />
+  </FilterLabel>
+);
 
     
 Filter.propTypes = {
-    message: propTypes.string.isRequired,
+    value: propTypes.string,
+    onChange: propTypes.func.isRequired,
 };
